@@ -14,7 +14,7 @@ function AdamSignal.new()
       Event = Event,
       Key = Key,
       Table = {},
-      Limit = math.huge,
+      FireLimit = math.huge,
   }, AdamSignal)
 end
 
@@ -45,6 +45,12 @@ end
 function AdamSignal:Fire(...)
   if not self.Event.Name == self.Key then
     return warn("AdamSignal: Suspecious activity detected while trying to use self:Fire() function.")
+  end
+
+  local FunctionTable = {...}
+
+  if #FunctionTable > self.FireLimit then
+    warn("AdamSignal: Cannot fire more than the limit. Limit is: "..tostring(self.FireLimit)..".")
   end
   
   return self.Event.Event:Fire(...)
