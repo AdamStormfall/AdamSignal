@@ -19,6 +19,9 @@
 * AdamSignal:Wait() : Variant
 》 Can be used after AdamSignal:Connect(...) or AdamSignal:Once(...) to add cooldown.
 
+* AdamSignal:Disconnect() : void
+》 Used to disconnect signals.
+
 * AdamSignal.Key : string
 》 You can use this to get key of signal you made.
 
