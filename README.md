@@ -1,5 +1,7 @@
 # AdamSignal
 
+> Code is in **init.lua** file.
+
 * API:
 
 * AdamSignal.new()
