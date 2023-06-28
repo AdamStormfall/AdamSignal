@@ -50,8 +50,6 @@ function AdamSignal:Once(F)
   return Connection
 end
 
-
-
 function AdamSignal:Wait()
   return self.Event.Event:Wait()
 end
