@@ -72,4 +72,13 @@ function AdamSignal:Wait()
   return self.Event.Event:Wait()
 end
 
+function AdamSignal:Disconnect()
+  self.Event:Destroy()
+  self.Key = nil
+  self.Table = nil
+  self.FireLimit = nil
+
+  setmetatable(self, nil)
+end
+
 return AdamSignal
