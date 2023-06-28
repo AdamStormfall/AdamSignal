@@ -14,6 +14,7 @@ function AdamSignal.new()
       Event = Event,
       Key = Key,
       Table = {},
+      Limit = math.huge,
   }, AdamSignal)
 end
 
@@ -26,31 +27,42 @@ function AdamSignal:__index(Index)
 end
 
 function AdamSignal:__newindex(Index, Value)
-  return self.Table[Index] = Value
+  if AdamSignal[Index] then
+    AdamSignal[Index] = Value
+  else
+    self.Table[Index] = Value
+  end
 end
 
 function AdamSignal:Connect(F)
+  if not self.Event.Name == self.Key then
+    return warn("AdamSignal: Suspecious activity detected while trying to use self:Connect() function.")
+  end
+  
   return self.Event.Event:Connect(F)
 end
 
 function AdamSignal:Fire(...)
+  if not self.Event.Name == self.Key then
+    return warn("AdamSignal: Suspecious activity detected while trying to use self:Fire() function.")
+  end
+  
   return self.Event.Event:Fire(...)
 end
 
 function AdamSignal:Once(F)
-  local Connection = nil
-
-  Connection = self.Event.Event:Connect(function(...)
-      if Connection then
-        Connection:Disconnect()
-      end
-      F(...)
+  if not self.Event.Name == self.Key then
+    return warn("AdamSignal: Suspecious activity detected while trying to use self:Once() function.")
   end
-  
-  return Connection
+
+  return self.Event.Event:Once(F)
 end
 
 function AdamSignal:Wait()
+  if not self.Event.Name == self.Key then
+    return warn("AdamSignal: Suspecious activity detected while trying to use self:Wait() function.")
+  end
+  
   return self.Event.Event:Wait()
 end
 
