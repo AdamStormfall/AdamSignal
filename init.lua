@@ -50,7 +50,7 @@ function AdamSignal:Fire(...)
   local FunctionTable = {...}
 
   if #FunctionTable > self.FireLimit then
-    warn("AdamSignal: Cannot fire more than the limit. Limit is: "..tostring(self.FireLimit)..".")
+    return warn("AdamSignal: Cannot fire more than the limit. Limit is: "..tostring(self.FireLimit)..".")
   end
   
   return self.Event:Fire(...)
