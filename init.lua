@@ -39,7 +39,7 @@ function AdamSignal:Connect(F)
     return warn("AdamSignal: Suspecious activity detected while trying to use self:Connect() function.")
   end
   
-  return self.Event:Connect(F)
+  return self.Event.Event:Connect(F)
 end
 
 function AdamSignal:Fire(...)
@@ -61,7 +61,7 @@ function AdamSignal:Once(F)
     return warn("AdamSignal: Suspecious activity detected while trying to use self:Once() function.")
   end
 
-  return self.Event:Once(F)
+  return self.Event.Event:Once(F)
 end
 
 function AdamSignal:Wait()
