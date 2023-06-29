@@ -78,6 +78,7 @@ function AdamSignal:Disconnect()
   self.Table = nil
   self.FireLimit = nil
 
+  table.clear(self)
   setmetatable(self, nil)
 end
 
