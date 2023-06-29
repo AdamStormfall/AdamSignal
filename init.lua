@@ -39,7 +39,7 @@ function AdamSignal:Connect(F)
     return warn("AdamSignal: Suspecious activity detected while trying to use self:Connect() function.")
   end
   
-  return self.Event.Event:Connect(F)
+  return self.Event:Connect(F)
 end
 
 function AdamSignal:Fire(...)
@@ -53,7 +53,7 @@ function AdamSignal:Fire(...)
     warn("AdamSignal: Cannot fire more than the limit. Limit is: "..tostring(self.FireLimit)..".")
   end
   
-  return self.Event.Event:Fire(...)
+  return self.Event:Fire(...)
 end
 
 function AdamSignal:Once(F)
@@ -61,7 +61,7 @@ function AdamSignal:Once(F)
     return warn("AdamSignal: Suspecious activity detected while trying to use self:Once() function.")
   end
 
-  return self.Event.Event:Once(F)
+  return self.Event:Once(F)
 end
 
 function AdamSignal:Wait()
@@ -69,7 +69,7 @@ function AdamSignal:Wait()
     return warn("AdamSignal: Suspecious activity detected while trying to use self:Wait() function.")
   end
   
-  return self.Event.Event:Wait()
+  return self.Event:Wait()
 end
 
 function AdamSignal:Disconnect()
