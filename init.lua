@@ -69,7 +69,7 @@ function AdamSignal:Wait()
     return warn("AdamSignal: Suspecious activity detected while trying to use self:Wait() function.")
   end
   
-  return self.Event:Wait()
+  return self.Event.Event:Wait()
 end
 
 function AdamSignal:Disconnect()
