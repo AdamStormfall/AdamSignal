@@ -9,6 +9,8 @@ function AdamSignal.new()
   local Key = HttpService:GenerateGUID(false)
 
   Event.Name = Key
+
+  Event:SetAttribute("AdamSignal", true)
   
   return setmetatable({
       Event = Event,
